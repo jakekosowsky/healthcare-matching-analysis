@@ -1,24 +1,36 @@
-# Healthcare Matching Funnel Analysis
+# Improving Access to Mental-Health Care
 
-An anonymized analytical workflow for studying how clients progress from a provider match request to an accepted match and a completed first session. It explores how channel, session preference, provider qualifications, and provider capacity relate to conversion.
+A personal analytics project about a practical access problem: after someone asks for mental-health support, what helps them successfully connect with a provider and reach a first session?
 
-## Analysis areas
+The analysis follows the matching funnel from request to provider acceptance to completed care. It examines where people fall out of that process and how the experience differs across service preferences, acquisition channels, provider characteristics, and provider capacity.
 
-- Monthly match-to-session conversion
-- Direct versus marketplace matching
-- In-person versus video preferences
-- Client acquisition source
-- Provider education and capacity
+## Questions explored
+
+- How does match-to-session conversion change over time?
+- Do people seeking video and in-person care experience different outcomes?
+- Which referral or acquisition channels lead to successful first sessions?
+- How do provider qualifications relate to conversion?
+- Does growing provider workload make a successful match less likely?
+- Where can the matching process be improved so more people receive care?
 
 ## Repository structure
 
-- `notebooks/matching_analysis.ipynb` — anonymized workflow and visual analysis
-- `data/` — intentionally empty; the original case-study workbook is not published
+```text
+src/
+  build_funnel.py              client-level funnel construction
+analysis/
+  conversion_over_time.py      monthly access and conversion trends
+  session_preferences.py       video and in-person comparisons
+  acquisition_channels.py      source-level conversion analysis
+  provider_capacity.py         workload and provider diagnostics
+notebooks/
+  matching_analysis.ipynb
+```
 
-## Privacy and data policy
+## Privacy
 
-No client- or provider-level source data is included. The notebook is retained as a portfolio example of analytical methodology only. To reproduce it, supply an authorized dataset with the documented column structure and follow applicable privacy and security requirements.
+No client- or provider-level source data is published. The repository shows the analytical logic and reporting structure without exposing the underlying records.
 
 ## Tools
 
-Python, pandas, NumPy, Matplotlib, Excel ingestion, cohort analysis, and funnel metrics.
+Python · pandas · NumPy · Matplotlib · funnel analysis · cohort analysis
