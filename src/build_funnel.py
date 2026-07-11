@@ -1,5 +1,7 @@
 """Construct client-level acceptance and first-session funnel metrics."""
 
+from pathlib import Path
+
 import pandas as pd
 import numpy as np
 import matplotlib as mpl
@@ -8,9 +10,11 @@ import matplotlib.pyplot as plt
 from matplotlib.ticker import PercentFormatter
 
 
-matches = pd.read_excel('Match_Data_for_Case_Study_Final_(2).xlsx', sheet_name = 1)
-clients = pd.read_excel('Match_Data_for_Case_Study_Final_(2).xlsx', sheet_name = 2)
-providers = pd.read_excel('Match_Data_for_Case_Study_Final_(2).xlsx', sheet_name = 3)
+SOURCE = Path(__file__).resolve().parents[1] / "data" / "private_matching_data.xlsx"
+
+matches = pd.read_excel(SOURCE, sheet_name=1)
+clients = pd.read_excel(SOURCE, sheet_name=2)
+providers = pd.read_excel(SOURCE, sheet_name=3)
 
 matches = matches[matches['MATCH_REQUEST_CREATED_AT'] > '2021-06-30'].copy()
 matches['accepted_no_decline'] = np.where((~matches['ACCEPTED_AT'].isna()) & (matches['DECLINED_AT'].isna()), 1, 0)
